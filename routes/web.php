@@ -4,7 +4,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::resource('products', 'ProductController');
+Route::resource('products', 'ProductController'); // ->middleware('auth');
 
 
 // Route::delete('products/{id}', 'ProductController@destroy')->name('products.delete');

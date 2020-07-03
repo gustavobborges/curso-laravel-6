@@ -2,10 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    protected $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+
+        // // $this->middleware('auth');
+        // $this->middleware('auth')->only([
+        //     'create', 'store'
+        // ]);
+        $this->middleware('auth')->except([
+            'index', 'show'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +29,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $teste = '<h1>ossa</h1>';
+
+        return view('teste', compact('teste'));
     }
 
     /**
@@ -45,7 +63,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return `Detalhes do produto`;
     }
 
     /**
