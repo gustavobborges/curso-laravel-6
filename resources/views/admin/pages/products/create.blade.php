@@ -5,7 +5,7 @@
 @section('content')
     <h1>Cadastrar novo Produto</h1>
 
-<form action="{{ route('products.store') }}" method="post">
+    <form action="{{ route('products.store') }}" method="post">
         @csrf
         <input type="texte" name="name" placeholder="Nome:">
         <input type="text" name="description" placeholder="Descrição:">
