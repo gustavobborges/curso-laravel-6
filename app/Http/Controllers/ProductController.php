@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProductRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -50,18 +51,18 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreUpdateProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateProductRequest $request)
     {
-        $request->validate([
-            'name' => 'required|min:3|max:255',
-            'description' => 'nullable|min:3|max:10000',
-            'photo' => 'required', 'image',  
-        ]);
-
         dd('OK');
+
+        // $request->validate([
+        //     'name' => 'required|min:3|max:255',
+        //     'description' => 'nullable|min:3|max:10000',
+        //     'photo' => 'required|image',  
+        // ]);
 
         // dd($request->all());
         // dd($request->name);
