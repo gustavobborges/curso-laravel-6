@@ -12,10 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Gustavo Borges',
-            'email' => 'gustavo.borges@ibridge.com.br',
-            'password' => bcrypt('123'),
-        ]);
+
+        factory(User::class, 10)->create();
+
+        // User::create([
+        //     'name' => 'Gustavo Borges',
+        //     'email' => 'gustavo.borges@ibridge.com.br',
+        //     'password' => bcrypt('123'),
+        // ]);
     }
 }
