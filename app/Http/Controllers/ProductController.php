@@ -63,6 +63,7 @@ class ProductController extends Controller
         if ($request->file('photo')->isValid());
             // $request->file('photo')->store('products');
             $nameFile = $request->name . '.' . $request->photo->extension();
+            // dd($request->file('photo')->store('products'));
             dd($request->file('photo')->storeAs('products', $nameFile));
     }
 
