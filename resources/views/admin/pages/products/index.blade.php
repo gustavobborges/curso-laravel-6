@@ -80,11 +80,17 @@
             Default
     @endswitch
 
+    @push('styles')
+        <style>
+            .last {background: #CCC;}
+        </style>
+    @endpush
 
-    <style>
-        .last {background: #CCC;}
-
-    </style>
+    @push('scripts')
+        <script>
+            document.body.style.background = '#efefef'
+        </script>
+    @endpush
 
 @endsection('content')
 
