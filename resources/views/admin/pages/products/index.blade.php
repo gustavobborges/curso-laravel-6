@@ -5,6 +5,21 @@
 @section('content')
     <h1>Exibindo os Produtos</h1>
 
+    @component('admin.components.card')
+        @slot('title')
+            <h1>Título Card</h1>
+        @endslot
+        @slot('slot')
+            <h3>body do card</h3>
+        @endslot
+    @endcomponent
+
+    <hr>
+
+    @include('admin.includes.alerts', ['content' => 'Alerta de preço de produtos.'])
+
+    <hr>
+
     @if (isset($products))
         @foreach ($products as $product)
             <p class="@if ($loop->last) last @endif"> {{ $product }} </p>
