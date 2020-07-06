@@ -7,7 +7,7 @@
     <title>Minha View</title>
 </head>
 <body>
-    ossa!
+    ossa!fffff
     {{ $teste }}
 </body>
 </html>
