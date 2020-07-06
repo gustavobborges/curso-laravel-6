@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $teste = '<h1>ossa</h1>';
 
-        return view('teste', compact('teste'));
+        return view('admin.pages.products.index', compact('teste'));
     }
 
     /**
