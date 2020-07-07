@@ -4,7 +4,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::any('products/search', 'ProductController@search')->name('products.search')->middleware('auth');
-Route::resource('products', 'ProductController'); // ->middleware('auth');
+Route::resource('products', 'ProductController')->middleware('auth');
 
 
 // Route::delete('products/{id}', 'ProductController@destroy')->name('products.delete');
@@ -26,6 +26,12 @@ Route::group([
         'namespace' => 'Admin',
         'name' => 'admin.'  
 ], function(){
+    Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
+        
+    Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+    
+    Route::get('/produtos', 'TesteController@teste')->name('produtos');  
+
     Route::get('/', function() {
         return redirect()->route('login');  
     })->name('home');
