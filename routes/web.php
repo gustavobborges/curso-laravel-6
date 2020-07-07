@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::any('products/search', 'ProductController@search')->name('products.search');
-Route::resource('products', 'ProductController'); // ->middleware('auth');
+Route::any('products/search', 'ProductController@search')->name('products.search')->middleware('auth');
+Route::resource('products', 'ProductController')->middleware('auth');
 
 
 // Route::delete('products/{id}', 'ProductController@destroy')->name('products.delete');
@@ -84,3 +84,6 @@ Route::get('/contato', function() {
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
