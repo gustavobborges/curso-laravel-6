@@ -19,14 +19,17 @@ class StoreUpdateProductRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+    * @return array
      */
     public function rules()
     {
+       
+        $id = $this->segment(2); //PARA QUANDO EDITAR PODER REGISTRAR MESMO NOME
+
         return [
-            'name' => 'required|min:3|max:255',
+            'name' => "required|min:3|max:255|unique:products,name,{$id},id",
             'description' => 'required|min:3|max:10000',
-            'price' => 'required',
+            'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
             'image' => 'nullable|image',  
         ];
     }
