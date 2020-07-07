@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(20); //default é 15
+        $products = Product::latest()->paginate(); //default é 15
 
         return view('admin.pages.products.index', [
             'products' => $products,
@@ -134,5 +134,18 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index');
+    }
+
+
+    public function search(Request $request) 
+    {
+        $filters = $request->except('_token');
+
+        $products = $this->repository->search($request->filter);
+
+        return view('admin.pages.products.index', [
+            'products' => $products,
+            'filters' => $filters, 
+        ]);
     }
 }
